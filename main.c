@@ -6,14 +6,15 @@ int main()
 {
 	int operation;
 	int first, second;
+    char buf[10];
 	for(;;){
 		printf("Select:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit\n");
 		
-		fgets(operation, 1, 0);
+		operation = fgets(buf, sizeof(buf), 0);
 		printf("Enter number first: ");
-		fgets(first, 1, 0);
+		first = fgets(buf, sizeof(buf), 0);
 		printf("\nEnter number second: ");
-		fgets(second, 1, 0);
+		second = fgets(buf, sizeof(buf), 0);
 
 		switch(operation){
 			case '1':

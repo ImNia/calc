@@ -15,7 +15,7 @@ int mul(int first, int second)
     return (first * second);
 }
 
-double div(int first, int second)
+double divis(int first, int second)
 {
     return (first / second);
 }

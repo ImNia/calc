@@ -10,7 +10,7 @@ int main()
 	int first, second;
     char buf[10];
 
-    handle = dlopen("/c_file/libcalc.so", RTLD_LAZY);
+    handle = dlopen("/home/agnia/study/eltex/calc/dlfcn/c_file/libcalc.so", RTLD_LAZY);
     if(!handle){
         fprintf(stderr, "%s\n", dlerror());
         exit(EXIT_FAILURE);
@@ -33,19 +33,19 @@ int main()
 		    switch(operation){
 		    	case 1:
                     function = dlsym(handle, "sum");
-		    		printf("\nAnswer: %f\n", (*function)(sum(first, second)));
+		    		printf("\nAnswer: %f\n", (sum(first, second)));
 		    		break;
 		    	case 2:
                     function = dlsym(handle, "sub");
-		    		printf("\nAnswer: %f\n", (*function)(sub(first, second)));
+		    		printf("\nAnswer: %f\n", (sub(first, second)));
 		    		break;
 			    case 3:
                     function = dlsym(handle, "mul");
-			    	printf("\nAnswer: %f\n", (*function)(mul(first, second)));
+			    	printf("\nAnswer: %f\n", (mul(first, second)));
 			    	break;
 			    case 4:
                     function = dlsym(handle, "divis");
-			    	printf("\nAnswer: %.4f\n", (*function)(divis(first, second)));
+			    	printf("\nAnswer: %.4f\n", (divis(first, second)));
 			    	break;
 		    	default:
                     operation = 5;

@@ -1,6 +1,6 @@
 #include "calc.h"
 
-int sum(int first, int second)
+double sum(int first, int second)
 {
     return (first + second);
 }

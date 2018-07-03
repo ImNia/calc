@@ -33,19 +33,19 @@ int main()
 		    switch(operation){
 		    	case 1:
                     function = dlsym(handle, "sum");
-		    		printf("\nAnswer: %f\n", (sum(first, second)));
+		    		printf("\nAnswer: %f\n", (*function)((first, second)));
 		    		break;
 		    	case 2:
                     function = dlsym(handle, "sub");
-		    		printf("\nAnswer: %f\n", (sub(first, second)));
+		    		printf("\nAnswer: %f\n", (*function)((first, second)));
 		    		break;
 			    case 3:
                     function = dlsym(handle, "mul");
-			    	printf("\nAnswer: %f\n", (mul(first, second)));
+			    	printf("\nAnswer: %f\n", (*function)((first, second)));
 			    	break;
 			    case 4:
                     function = dlsym(handle, "divis");
-			    	printf("\nAnswer: %.4f\n", (divis(first, second)));
+			    	printf("\nAnswer: %.4f\n", (*function)((first, second)));
 			    	break;
 		    	default:
                     operation = 5;

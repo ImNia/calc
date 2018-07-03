@@ -31,4 +31,4 @@ clean:
 	rm -rf ./object_file
 	rm $(CDIR)/test
 	rm main
-	rm libcalc.so
+	rm $(CDIR)/libcalc.so

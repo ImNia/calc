@@ -5,12 +5,12 @@
 int main()
 {
     void *handle;
-    double (*function)(double); //переменная для хранения адреса функции из библиотеки libcalc.so
+    int (*function)(int, int); //переменная для хранения адреса функции из библиотеки libcalc.so
 	int operation;
 	int first, second;
     char buf[10];
 
-    handle = dlopen("/home/agnia/study/eltex/calc/dlfcn/c_file/libcalc.so", RTLD_LAZY);
+    handle = dlopen("./c_file/libcalc.so", RTLD_LAZY);
     if(!handle){
         fprintf(stderr, "%s\n", dlerror());
         exit(EXIT_FAILURE);
@@ -33,19 +33,19 @@ int main()
 		    switch(operation){
 		    	case 1:
                     function = dlsym(handle, "sum");
-		    		printf("\nAnswer: %f\n", (*function)((first, second)));
+		    		printf("\nAnswer: %d\n", function(first, second));
 		    		break;
 		    	case 2:
                     function = dlsym(handle, "sub");
-		    		printf("\nAnswer: %f\n", (*function)((first, second)));
+		    		printf("\nAnswer: %d\n", function(first, second));
 		    		break;
 			    case 3:
                     function = dlsym(handle, "mul");
-			    	printf("\nAnswer: %f\n", (*function)((first, second)));
+			    	printf("\nAnswer: %d\n", function(first, second));
 			    	break;
 			    case 4:
                     function = dlsym(handle, "divis");
-			    	printf("\nAnswer: %.4f\n", (*function)((first, second)));
+			    	printf("\nAnswer: %.4d\n", function(first, second));
 			    	break;
 		    	default:
                     operation = 5;
